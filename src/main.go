@@ -6,6 +6,14 @@ import (
 	"os"
 )
 
+func generateCow() string {
+	return `  \   ^__^
+	\  (oo)\_______
+	   (__)\       )\/\
+	   ||----w |
+	   ||     ||`
+}
+
 func main() {
 	info, _ := os.Stdin.Stat()
 
@@ -16,16 +24,16 @@ func main() {
 	}
 
 	reader := bufio.NewReader(os.Stdin)
-	var output []rune
+	var lines []string
 
 	for {
-		char, _, err := reader.ReadRune()
+		line, _, err := reader.ReadLine()
 		if err != nil && err == io.EOF {
 			break
 		}
 
-		output = append(output, char)
+		lines = append(lines, string(line))
 	}
 
-	print(string(output))
+	print(lines[0])
 }
