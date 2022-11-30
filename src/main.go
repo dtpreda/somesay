@@ -37,6 +37,16 @@ func maxLineWidth(lines []string) int {
 	return max
 }
 
+func padLines(lines []string, width int) []string {
+	var result []string
+
+	for _, line := range lines {
+		result = append(result, line+strings.Repeat(" ", width-len(line)))
+	}
+
+	return result
+}
+
 func main() {
 	info, _ := os.Stdin.Stat()
 
@@ -59,4 +69,5 @@ func main() {
 	}
 
 	lines = tabToWhitespace(lines)
+	lines = padLines(lines, maxLineWidth(lines))
 }
