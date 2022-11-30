@@ -47,6 +47,18 @@ func padLines(lines []string, width int) []string {
 	return result
 }
 
+func buildBalloon(lines []string, width int) string {
+	var result string
+
+	result += "o" + strings.Repeat("-", width+2) + "o\n"
+	for _, line := range lines {
+		result += "| " + line + " |"
+		result += "\n"
+	}
+	result += "o" + strings.Repeat("-", width+2) + "o\n"
+	return result
+}
+
 func main() {
 	info, _ := os.Stdin.Stat()
 
@@ -70,4 +82,6 @@ func main() {
 
 	lines = tabToWhitespace(lines)
 	lines = padLines(lines, maxLineWidth(lines))
+	ballon := buildBalloon(lines, maxLineWidth(lines))
+	print(ballon)
 }
