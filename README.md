@@ -3,15 +3,19 @@ A clone of cowsay, written in Go
 
 ## Installation
 
-In order to use somesay, you can clone the repository and run the provided script, which installs the binary in your `$GOPATH/bin` directory:
+The easier way to get somesay is to run the command:
+
+    go install github.com/dtpreda/somesay
+
+In alternative, you can clone the repository and run the provided script, which installs the binary in your `$GOPATH/bin` directory:
 
     git clone git@github.com:dtpreda/somesay.git && cd somesay && ./install.sh
 
-Don't forget to add `$GOPATH/bin` to your `$PATH` variable.
+Don't forget to add `$GOPATH/bin` to your `$PATH` variable, if you choose to do it this way.
 
     export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 
-In alternative, you main simply use `go run` to run the program or build it using `go build` and then running the executable.
+In alternative to the script, you main simply use `go run` to run the program or build it using `go build` and then running the executable.
 
 ## Usage
 
