@@ -8,11 +8,12 @@ import (
 )
 
 func generateCow() string {
-	return `  \   ^__^
-	\  (oo)\_______
-	   (__)\       )\/\
-	   ||----w |
-	   ||     ||`
+	return `       \  ^__^
+	\ (oo)\_______
+	  (__)\       )\/\
+	      ||----w |
+	      ||     ||
+  `
 }
 
 func tabToWhitespace(lines []string) []string {
@@ -84,4 +85,5 @@ func main() {
 	lines = padLines(lines, maxLineWidth(lines))
 	ballon := buildBalloon(lines, maxLineWidth(lines))
 	print(ballon)
+	print(generateCow())
 }
