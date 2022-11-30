@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"io"
+	"math"
 	"os"
 	"strings"
 )
@@ -81,8 +82,11 @@ func main() {
 		lines = append(lines, string(line))
 	}
 
+	cow := generateCow()
+
 	lines = tabToWhitespace(lines)
-	lines = padLines(lines, maxLineWidth(lines))
+	width := math.Max(float64(maxLineWidth(lines)), float64(maxLineWidth(strings.Split(cow, "\n"))))
+	lines = padLines(lines, int(width))
 	ballon := buildBalloon(lines, maxLineWidth(lines))
 	print(ballon)
 	print(generateCow())
