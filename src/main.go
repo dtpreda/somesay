@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"io"
 	"os"
+	"strings"
 )
 
 func generateCow() string {
@@ -12,6 +13,16 @@ func generateCow() string {
 	   (__)\       )\/\
 	   ||----w |
 	   ||     ||`
+}
+
+func tabToWhitespace(lines []string) []string {
+	var result []string
+
+	for _, line := range lines {
+		result = append(result, strings.Replace(line, "\t", " ", -1))
+	}
+
+	return result
 }
 
 func main() {
@@ -35,5 +46,5 @@ func main() {
 		lines = append(lines, string(line))
 	}
 
-	print(lines[0])
+	lines = tabToWhitespace(lines)
 }
